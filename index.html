@@ -703,7 +703,7 @@
       );
     };
 
-    // --- 5. Pantalla: Historial (MODIFICADA) ---
+    // --- 5. Pantalla: Historial ---
     const HistorialPage = ({ pedidos, onActualizarEstadoPedido, onPrintTicket, onReiniciarDia }) => {
       const [filtro, setFiltro] = useState('todos');
 
@@ -863,10 +863,11 @@
       );
     };
 
-    // --- 6. TICKET DE IMPRESIÓN (PÁGINA COMPLETA) ---
+    // --- 6. TICKET DE IMPRESIÓN (CORREGIDO) ---
     const TicketPage = ({ pedido, onClose }) => {
       return (
-        <div className="print-container no-print">
+        // 1. SE QUITÓ 'no-print' DE AQUÍ
+        <div className="print-container"> 
           <div className="card shadow-lg rounded-5 mx-auto ticket-content" style={{ maxWidth: '320px' }}>
             <div className="card-body p-4">
               <h2 className="text-center fs-5 fw-bold mb-3">CooperativaPlus</h2>
@@ -904,7 +905,8 @@
             </div>
           </div>
           
-          <div className="mx-auto mt-4 d-flex gap-3" style={{ maxWidth: '320px' }}>
+          {/* 2. SE AÑADIÓ 'no-print' A LOS BOTONES */}
+          <div className="mx-auto mt-4 d-flex gap-3 no-print" style={{ maxWidth: '320px' }}>
             <button onClick={onClose} className="btn btn-danger btn-lg flex-grow-1 rounded-pill">
               Cerrar
             </button>
